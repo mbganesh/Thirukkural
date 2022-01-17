@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Thirukkural/static/css/main.073c9b0a.css",
-    "main.js": "/Thirukkural/static/js/main.580ca262.js",
+    "main.js": "/Thirukkural/static/js/main.0a9d0d2b.js",
     "static/js/787.83948048.chunk.js": "/Thirukkural/static/js/787.83948048.chunk.js",
     "static/media/logo.svg": "/Thirukkural/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/Thirukkural/index.html",
     "main.073c9b0a.css.map": "/Thirukkural/static/css/main.073c9b0a.css.map",
-    "main.580ca262.js.map": "/Thirukkural/static/js/main.580ca262.js.map",
+    "main.0a9d0d2b.js.map": "/Thirukkural/static/js/main.0a9d0d2b.js.map",
     "787.83948048.chunk.js.map": "/Thirukkural/static/js/787.83948048.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.580ca262.js"
+    "static/js/main.0a9d0d2b.js"
   ]
 }
