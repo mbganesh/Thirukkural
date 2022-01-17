@@ -8,9 +8,10 @@ import AllKural from './AllKural';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename='/Thirukkural'>
       <Routes>
           <Route path='/' exact element={ <App/> } />
+          <Route path='/Thirukkural' exact element={ <App/> } />
           <Route path='/kural' exact element={ <AllKural/> } />
       </Routes>
     </BrowserRouter>
