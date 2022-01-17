@@ -5,34 +5,76 @@ import { useState } from "react";
 import {
   AppBar,
   Button,
+  makeStyles,
   Paper,
   Toolbar,
   Typography,
 } from "@material-ui/core";
 import TranslateIcon from "@material-ui/icons/Translate";
 import { useNavigate } from "react-router-dom";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 var jsonData = require("./kural.json");
 
-function AllKural() {
+const useStyles = makeStyles((theme) => ({
+  appBarBtn: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: "15px",
+    backgroundColor: "#548CFF",
+    marginRight: "1%",
+  },
+  root:{
+    marginTop: "4%",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "13%",
+    }
+  },
+  rootPaper: {
+    backgroundColor: "#548CFF",
+    margin: "10px",
+    padding: "10px",
+    [theme.breakpoints.down("sm")]: {
+     
+    },
+  },
+  rootPaper3Text:{
+    display: "flex", justifyContent: "space-evenly",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection:'column',
+      textAlign:'center'
+    },
     
-const navigate = useNavigate()
+  },
+  rootPaperText1:{
+    color: "white",
+    fontWeight: "bold",
+    fontSize: "18px",
+  },
+
+  body: {
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.between("sm", "md")]: {},
+  },
+}));
+
+function AllKural() {
+  const classes = useStyles();
+  const navigate = useNavigate();
 
   const url = "https://api-thirukkural.vercel.app/api?num=";
 
   const [isTamil, setIsTamil] = useState(true);
-  const [myText , setMyText] = useState("English")
+  const [myText, setMyText] = useState("English");
 
   const handleTranslate = () => {
     setIsTamil(!isTamil);
 
-    if(myText === "English"){
-      setMyText("தமிழ்")
-    }else{
-      setMyText("English")
+    if (myText === "English") {
+      setMyText("தமிழ்");
+    } else {
+      setMyText("English");
     }
   };
-
 
   return (
     <div>
@@ -42,69 +84,63 @@ const navigate = useNavigate()
             backgroundColor: "#1C6DD0",
           }}
         >
-          <Typography style={{fontSize:'22px' , fontWeight:'bold' , flex:1}}>Thirukkural</Typography>
+          <Typography style={{ fontSize: "22px", fontWeight: "bold", flex: 1 }}>
+            Thirukkural
+          </Typography>
 
-          <Button variant="contained" style={{color:'white' , fontWeight:'bold', fontSize:'15px' , backgroundColor:'#548CFF' , marginRight:'1%'}} startIcon={<ArrowBackIcon/>} onClick={() =>  navigate('/') }> Back </Button>
+          <Button
+            variant="contained"
+            className={classes.appBarBtn}
+            startIcon={<ArrowBackIcon />}
+            onClick={() => navigate("/")}
+          >
+            {" "}
+            Back{" "}
+          </Button>
 
-          <Button variant="contained" style={{color:'white' , fontWeight:'bold', fontSize:'15px' , backgroundColor:'#548CFF' , marginRight:'1%'}} startIcon={<TranslateIcon/>} onClick={() => handleTranslate()}> {myText} </Button>
-
-
+          <Button
+            variant="contained"
+            className={classes.appBarBtn}
+            startIcon={<TranslateIcon />}
+            onClick={() => handleTranslate()}
+          >
+            {" "}
+            {myText}{" "}
+          </Button>
         </Toolbar>
-
       </AppBar>
 
-      <div style={{ marginTop: "4%" }}>
+      <div  className={classes.root}>
         {jsonData.map((kural, index) => (
           <div>
-            <Paper
-              elevation={10}
-              style={{
-                backgroundColor: "#548CFF",
-                margin: "10px",
-                padding: "10px",
-              }}
-            >
-              
-                <Typography
-                  style={{
-                    color: "white",
-                    fontWeight: "bold",
-                    fontSize: "20px",
-                  }}
-                >
-                  {kural["number"]}
-                </Typography>
-
+            <Paper elevation={10} className={classes.rootPaper}>
+              <Typography
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                }}
+              >
+                {kural["number"]}
+              </Typography>
 
               {isTamil ? (
                 <div id="tamil">
                   <div
-                    style={{ display: "flex", justifyContent: "space-evenly" }}
+                    className={classes.rootPaper3Text}
                   >
                     <Typography
-                      style={{
-                        color: "white",
-                        fontWeight: "bold",
-                        fontSize: "18px",
-                      }}
+                      className={classes.rootPaperText1}
                     >
                       {kural["sect_tam"]}
                     </Typography>
                     <Typography
-                      style={{
-                        color: "white",
-                        fontWeight: "bold",
-                        fontSize: "18px",
-                      }}
+                     className={classes.rootPaperText1}
                     >
                       {kural["chapgrp_tam"]}
                     </Typography>
                     <Typography
-                      style={{
-                        color: "white",
-                        fontWeight: "bold",
-                        fontSize: "18px",
-                      }}
+                     className={classes.rootPaperText1}
                     >
                       {kural["chap_tam"]}
                     </Typography>

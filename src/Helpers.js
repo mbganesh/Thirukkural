@@ -4,7 +4,8 @@ const Helpers =  () =>{
         api:"https://api-thirukkural.vercel.app/api?num=",
         textColor:"#861aff",
         btnCol1:"#7900FF",
-        btnCol2:"#548CFF",
+        btnCol2:"#1C6DD0",
+        homecl1:"#548CFF",
     }
     return myData;
 }
